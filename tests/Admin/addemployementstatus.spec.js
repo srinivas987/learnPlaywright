@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import logindata from "../../testdata/logindata.json"
+import logindata from "../../testData/logindata.json"
 
 test("Verify login and add employeement status", async ({ page }) =>{
 
@@ -15,7 +15,7 @@ test("Verify login and add employeement status", async ({ page }) =>{
     await page.locator("//span[normalize-space(text())='Job']").click();
     await page.locator("//a[normalize-space(text())='Employment Status']").click();
     await page.locator("//button[contains(.,'Add')]").click();
-    await page.locator("//label[normalize-space(text())='Name']/following::input").fill("Active Employee");
+    await page.locator("//label[normalize-space(text())='Name']/following::input").fill("Active Employee 1");
     await page.locator("//button[@type='submit']").click();
 
     await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/admin/employmentStatus')

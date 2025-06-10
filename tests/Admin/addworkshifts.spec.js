@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-import logindata from "../../testdata/logindata.json"
+import logindata from "../../testData/logindata.json"
 
-test("Verify login and add employeement status", async ({ page }) =>{
+test("Verify login and add work shift", async ({ page }) =>{
 
     await page.goto("web/index.php/dashboard/index");
     await page.locator("input[placeholder='Username']").fill(logindata.username)
@@ -15,7 +15,7 @@ test("Verify login and add employeement status", async ({ page }) =>{
     await page.locator("//span[normalize-space(text())='Job']").click();
     await page.locator("//a[normalize-space(text())='Work Shifts']").click();
     await page.locator("//button[contains(.,'Add')]").click();
-    await page.locator("(//label[normalize-space(text())='Shift Name']/following::input)[1]").fill("UK Shift-1");
+    await page.locator("(//label[normalize-space(text())='Shift Name']/following::input)[1]").fill("UK Shift-2");
     await page.locator("(//input[@placeholder='hh:mm'])[1]").fill("02:00 PM")
     await page.locator("(//label[normalize-space(text())='To']/following::input)[1]").fill("11:00 PM")
     await page.locator("//button[@type='submit']").click();
